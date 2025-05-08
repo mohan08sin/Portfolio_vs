@@ -35,7 +35,7 @@ const ArticlesPage = ({ articles }: ArticlesPageProps) => {
 
 export async function getStaticProps() {
   const res = await fetch(
-    '#',
+    '',
     {
       headers: {
         'api-key': process.env.DEV_TO_API_KEY!,
