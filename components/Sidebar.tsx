@@ -16,7 +16,7 @@ const sidebarTopItems = [
   { Icon: VscFiles, path: '/' },
   { Icon: VscGithubAlt, path: '/github' },
   { Icon: VscCode, path: '/projects' },
-  { Icon: VscEdit, path: '/' },
+  { Icon: VscEdit, path: '/contact' },
   { Icon: VscMail, path: '/contact' },
 ];
 
