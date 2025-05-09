@@ -7,27 +7,36 @@ export async function getStaticProps() {
     Accept: 'application/vnd.github.v3+json',
   };
 
-  async function fetchSafe(url, label) {
-    const res = await fetch(url, { headers });
-    const contentType = res.headers.get('content-type') || '';
+  const safeFetch = async (url, name) => {
+    try {
+      const res = await fetch(url, { headers });
+      const contentType = res.headers.get('content-type') || '';
+      const isJSON = contentType.includes('application/json');
 
-    if (!res.ok) {
-      const text = await res.text();
-      console.error(`${label} failed:`, text);
+      if (!res.ok) {
+        const text = await res.text();
+        console.error(`${name} request failed:`, res.status, text);
+        return null;
+      }
+
+      return isJSON ? res.json() : null;
+    } catch (err) {
+      console.error(`${name} fetch error:`, err);
       return null;
     }
+  };
 
-    if (!contentType.includes('application/json')) {
-      const text = await res.text();
-      console.error(`${label} returned non-JSON:`, text);
-      return null;
-    }
+  const user = await safeFetch(`https://api.github.com/users/${username}`, 'User');
+  const repos = await safeFetch(`https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`, 'Repos');
 
-    return res.json();
+  if (!user) {
+    return {
+      props: {
+        user: null,
+        repos: [],
+      },
+    };
   }
-
-  const user = await fetchSafe(`https://api.github.com/users/${username}`, 'User');
-  const repos = await fetchSafe(`https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`, 'Repos');
 
   return {
     props: {
