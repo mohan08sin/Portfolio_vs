@@ -7,37 +7,36 @@ export async function getStaticProps() {
     Accept: 'application/vnd.github.v3+json',
   };
 
-  const userRes = await fetch(`https://api.github.com/users/${username}`, {
-    headers,
-  });
+  async function fetchJsonSafe(url, label) {
+    const res = await fetch(url, { headers });
+    const contentType = res.headers.get('content-type');
 
-  if (!userRes.ok) {
-    const errorText = await userRes.text();
-    throw new Error(`GitHub User API error: ${userRes.status} - ${errorText}`);
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(`${label} failed: ${res.status} - ${errorText}`);
+    }
+
+    if (!contentType || !contentType.includes('application/json')) {
+      const errorText = await res.text();
+      throw new Error(`${label} did not return JSON: ${errorText}`);
+    }
+
+    return res.json();
   }
 
-  const user = await userRes.json();
-
-  const repoRes = await fetch(
-    `https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`,
-    {
-      headers,
-    }
+  const user = await fetchJsonSafe(
+    `https://api.github.com/users/${username}`,
+    'GitHub User API'
   );
 
-  if (!repoRes.ok) {
-    const errorText = await repoRes.text();
-    throw new Error(`GitHub Repos API error: ${repoRes.status} - ${errorText}`);
-  }
-
-  const repos = await repoRes.json();
+  const repos = await fetchJsonSafe(
+    `https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`,
+    'GitHub Repos API'
+  );
 
   return {
-    props: {
-      user,
-      repos,
-    },
-    revalidate: 600, // Rebuild the page every 10 minutes
+    props: { user, repos },
+    revalidate: 600,
   };
 }
 
@@ -60,11 +59,7 @@ export default function GithubPage({ user, repos }) {
       <ul>
         {repos.map((repo) => (
           <li key={repo.id}>
-            <a
-              href={repo.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
               {repo.name}
             </a>
             <p>{repo.description}</p>
