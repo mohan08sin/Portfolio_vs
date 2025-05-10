@@ -44,6 +44,7 @@ const AboutPage = () => {
               dystopian novel, listen to  music or just laze around.
             </p>
           </section>
+          <br />
 
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Skills</h2>
@@ -54,18 +55,23 @@ const AboutPage = () => {
               <span className={styles.highlight}>scalable</span>{' '}
               web applications.
             </p>
+            <br />
+            <br />
             <h3 className={styles.sectionSubtitle}>
               Frontend 
             </h3>
+            <br />
             <ul className={styles.skillsList}>
               <li className={styles.skillItem}><span className={styles.highlight}>Languages:</span> HTML5 , CSS3, JavaScript</li>
               <li className={styles.skillItem}><span className={styles.highlight}>Frameworks & Libraries:</span> React.js, Tailwind CSS, Bootstrap</li>
               <li className={styles.skillItem}><span className={styles.highlight}>Tools: </span>VS Code</li>
             </ul>
             <br/>
+            <br />
             <h3 className={styles.sectionSubtitle}>
               Backend
             </h3>
+            <br />
             <ul className={styles.skillsList}>
               <li className={styles.skillItem}><span className={styles.highlight}>Languages:</span> Java, Python</li>
               <li className={styles.skillItem}><span className={styles.highlight}>Frameworks & Libraries:</span> Spring Boot</li>
