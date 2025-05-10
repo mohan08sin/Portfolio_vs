@@ -35,24 +35,43 @@ const AboutPage = () => {
             </p>
           </section> */}
 
-          {/* <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>Writing</h2>
-            <p className={styles.paragraph}>
-              I&apos;ve had the pleasure of writing for some amazing
-              publications like{' '}
-              <span className={styles.highlight}>100ms Blog</span>,{' '}
-              <span className={styles.highlight}>LogRocket Blog</span>,{' '}
-              <span className={styles.highlight}>DEV.to</span> and more as a
-              freelance technical author.
-            </p>
-          </section> */}
+          
 
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Beyond Code</h2>
             <p className={styles.paragraph}>
               Aside from programming and writing, I like to read a good
-              dystopian novel, listen to calm piano music or just laze around.
+              dystopian novel, listen to  music or just laze around.
             </p>
+          </section>
+
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Skills</h2>
+            <p className={styles.paragraph}>
+              I have expertise in a variety of technologies that enable me to{' '}
+              <span className={styles.highlight}>build fast</span>,{' '}
+              <span className={styles.highlight}>responsive</span>,{' '}and{' '}
+              <span className={styles.highlight}>scalable</span>{' '}
+              web applications.
+            </p>
+            <h3 className={styles.sectionSubtitle}>
+              Frontend 
+            </h3>
+            <ul className={styles.skillsList}>
+              <li className={styles.skillItem}><span className={styles.highlight}>Languages:</span> HTML5 , CSS3, JavaScript</li>
+              <li className={styles.skillItem}><span className={styles.highlight}>Frameworks & Libraries:</span> React.js, Tailwind CSS, Bootstrap</li>
+              <li className={styles.skillItem}><span className={styles.highlight}>Tools: </span>VS Code</li>
+            </ul>
+            <br/>
+            <h3 className={styles.sectionSubtitle}>
+              Backend
+            </h3>
+            <ul className={styles.skillsList}>
+              <li className={styles.skillItem}><span className={styles.highlight}>Languages:</span> Java, Python</li>
+              <li className={styles.skillItem}><span className={styles.highlight}>Frameworks & Libraries:</span> Spring Boot</li>
+              <li className={styles.skillItem}><span className={styles.highlight}>Tools: </span>Eclipse, IntelliJ, Postman, Git, Docker</li>
+              <li className={styles.skillItem}><span className={styles.highlight}>Databases:</span> MySQL</li>
+            </ul>
           </section>
         </div>
       </div>
