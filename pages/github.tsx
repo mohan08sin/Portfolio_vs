@@ -368,8 +368,8 @@ export async function getStaticProps() {
 
   try {
     const [userRes, repoRes] = await Promise.all([
-      fetch(`https://api.github.com/users/${username}`, { headers }),
-      fetch(`https://api.github.com/users/${username}/repos?sort=pushed&per_page=6`, { headers }),
+      fetch(`https://api.github.com/users/mohan08sin`, { headers }),
+      fetch(`https://api.github.com/users/mohan08sin/repos?sort=pushed&per_page=6`, { headers }),
     ]);
 
     if (!userRes.ok || !repoRes.ok) {
