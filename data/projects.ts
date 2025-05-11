@@ -7,14 +7,6 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // {
-  //   title: 'Driwwwle',
-  //   description:
-  //     'Discover creative websites and developers. A portal for you to share your projects.',
-  //   logo: '/logos/driwwwle.svg',
-  //   link: 'https://github.com/',
-  //   slug: 'driwwwle',
-  // },
   {
     title: 'VSCode Portfolio',
     description:
@@ -30,13 +22,5 @@ export const projects: Project[] = [
     logo: '/logos/react_icon.svg',
     link: 'https://github.com/mohan08sin/Employee-Management',
     slug: 'Employee Management',
-  },
-  // {
-  //   title: 'Coolify Deployments',
-  //   description:
-  //     'VSCode extension to track and deploy your Coolify applications.',
-  //   logo: '/logos/coolify.svg',
-  //   link: 'https://github.com/',
-  //   slug: 'coolify-vscode-extension',
-  // },
+  }
 ];
