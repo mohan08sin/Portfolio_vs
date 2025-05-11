@@ -63,7 +63,7 @@ const AboutPage = () => {
             <br />
             <ul className={styles.skillsList}>
               <li className={styles.skillItem}><span className={styles.highlight}>Languages:</span> HTML5 , CSS3, JavaScript</li>
-              <li className={styles.skillItem}><span className={styles.highlight}>Frameworks & Libraries:</span> React.js, Tailwind CSS, Bootstrap</li>
+              <li className={styles.skillItem}><span className={styles.highlight}>Frameworks & Libraries:</span> React.js, Tailwind CSS, GSAP, Bootstrap</li>
               <li className={styles.skillItem}><span className={styles.highlight}>Tools: </span>VS Code</li>
             </ul>
             <br/>
