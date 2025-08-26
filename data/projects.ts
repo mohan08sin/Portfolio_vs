@@ -27,7 +27,8 @@ export const projects: Project[] = [
     title: 'Event Management',
     description:
       'A Spring Boot-based Event Management Application allowing CRUD operations for events, attendees, organizers, venues, and registrations. Supports pagination, sorting, advanced queries, and standardized API responses. Built with PostgreSQL, JPA/Hibernate, and ready for REST API integration.',
-    logo: '/logos/react_icon.svg',
+    logo: '/logos/json_icon.svg
+',
     link: 'https://github.com/mohan08sin/Event-Management',
     slug: 'Event Management',
   }
